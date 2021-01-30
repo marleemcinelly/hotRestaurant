@@ -3,8 +3,10 @@
 var express = require("express");
 var path = require("path");
 var http = require("http");
-function handleRequest(request, response){
-  response.end(request.url);
+function handleRequest(req, res){
+  var path = req.url;
+
+
 }
 // Sets up the Express App
 // =============================================================
