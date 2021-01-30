@@ -2,7 +2,10 @@
 // =============================================================
 var express = require("express");
 var path = require("path");
-
+var http = require("http");
+function handleRequest(request, response){
+  response.end(request.url);
+}
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -122,6 +125,7 @@ app.post("/api/reservations", function(req, res) {
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+var server = http.createServer(handleRequest);
+server.listen(PORT, function() {
+    console.log("Server listening on: http://localhost:" + PORT);
 });
